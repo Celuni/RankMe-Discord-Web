@@ -14,7 +14,7 @@
 
 #### General
 ```
-language | Bot currently only has translations for english.
+language | English = en, hungarian = hu.
 bot-token | Discord Bot token, https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token
 prefix | Command prefix, e.g. !rank & !top.
 command-cooldown | Cool down in seconds per user.
