@@ -34,5 +34,22 @@
         "hs-percentage": "Fejlövés százalék",
         "rounds-played": "Lejátszott körök",
         "adr": "ADR"
+    },
+    "nl": {
+        "connection-successful": "===========================================\nNaam: {0.user}\nGemeenschap: {1}\nDiscord.py versie: {2}\nRankMe Bot versie: {3}\n===========================================",
+        "wrong-version": "[ERROR] ==> Deze bot vereist een nieuwere discord.py versie.\n\nJe Gebruikt: {}\nInstalleer 1.0.1",
+        "command-cooldown": "<@{}> dit commando heeft een {:.2f}s cooldown.",
+        "top-message-title": "__Top {} Spelers!__",
+        "top-message": "**Punten:** {}\n**Moorden:** {}\n**Gestorven:** {}\n{}",
+        "rank-command-incorrect-format": "<@{}> commando moet opgemaakt zijn zoals ``{}rank steamid``",
+        "incorrect-steam-id": "<@{}> Deze SteamID is incorrect!\nI accepteren alleen ``steamid64, steamid & steam3.``",
+        "kills": "Moorden",
+        "deaths": "Gestorven",
+        "assists": "Hulp",
+        "headshots": "Hoofdschoten",
+        "kdr": "KDR",
+        "hs-percentage": "HS Percentage",
+        "rounds-played": "Rondes gespeeld",
+        "adr": "ADR"
     }
 }
