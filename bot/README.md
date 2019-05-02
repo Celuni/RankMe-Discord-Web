@@ -11,6 +11,11 @@
 ### Config
 - Edit ``config.json``
 
+### Commands
+- !top | Gives top players, ordered by score at first.
+- !achievements | Gives top 5 players for each column.
+- !rank 76561198206430337 | Gives stats for that player.
+
 #### General
 ```
 language | English = en, hungarian = hu.
