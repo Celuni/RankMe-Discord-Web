@@ -21,7 +21,7 @@ if discord.version_info.major == 1:
 
     @client.event
     async def on_ready():
-        print(translations[language]["connection-successful"].format(client, config["general"]["community-name"], discord.__version__, "1.0.0"))
+        print(translations[language]["connection-successful"].format(client, config["general"]["community-name"], discord.__version__, "1.1.0"))
 
     @client.event
     async def on_command_error(ctx, error):
@@ -45,12 +45,41 @@ if discord.version_info.major == 1:
             counter = 0
             for row in r:
                 counter += 1
-                embed.add_field(name="{}. {}".format(counter, row[1][:15]), value=translations[language]["top-message"].format(row[2], row[3], row[4], row[0]), inline=True)
+                embed.add_field(name="{}. {}".format(counter, row[1][:10]), value=translations[language]["top-message"].format(row[2], row[3], row[4], row[0]), inline=True)
 
             await ctx.send(embed=embed)
 
             await cur.close()
         
+        conn.close()
+
+    @client.command()
+    @commands.cooldown(1, config["general"]["command-cooldown"], commands.BucketType.user)
+    async def achievements(ctx):
+        conn = await aiomysql.connect(host=config["rankme"]["mysql"]["servername"], port=config["rankme"]["mysql"]["port"],
+                                      user=config["rankme"]["mysql"]["username"], password=config["rankme"]["mysql"]["password"],
+                                      db=config["rankme"]["mysql"]["dbname"])
+
+        async with conn.cursor() as cur:
+            embed = discord.Embed(colour=discord.Colour(0x0e9fed))
+
+            for column, title in config["achievements"].items():
+
+                await cur.execute("SELECT name, {} FROM {} ORDER BY {} DESC LIMIT 5".format(column, config["rankme"]["table-name"], column))
+                r = await cur.fetchall()
+
+                content = ""
+                counter = 0
+                for row in r:
+                    counter += 1
+                    content += "**{}. {}**: {}\n".format(counter, row[0][:10], row[1])
+
+                embed.add_field(name=title, value=content, inline=True)
+
+            await ctx.send(embed=embed)
+
+            await cur.close()
+
         conn.close()
 
     @client.command()

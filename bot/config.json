@@ -20,5 +20,13 @@
         "table-name": "rankme",
         "top-limit": 12,
         "order-by": "score"
+    },
+    "achievements": {
+        "score": "Highest score!",
+        "kills": "Most Kills!",
+        "deaths": "Most Deaths!",
+        "assists": "Most Assists!",
+        "suicides": "Most Suicides!",
+        "damage": "Most Damage!"
     }
 }
